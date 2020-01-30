@@ -18,6 +18,7 @@ const FriendDiv = styled.div`
   border-radius: 5px;
   margin: 2%;
   background-color: whitesmoke;
+  opacity: 0.8;
 `;
 
 function TeamMembers(props) {

@@ -6,11 +6,12 @@ const TeamMemberFormForm = styled.form`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin: 3% auto;
+  margin: auto;
   width: 35%;
   background-color: whitesmoke;
   border: 1px solid black;
   border-radius: 5px;
+  opacity: 0.8;
 `;
 
 const InputDiv = styled.div`
@@ -25,15 +26,19 @@ function TeamMemberForm(props) {
   // console.log(props);
 
   const [friend, setFriend] = useState({
-    name: ""
+    name: "",
+    email: "",
+    role: ""
   });
 
   const handleChange = e => {
-    setFriend({ ...friend, [e.target.name]: e.target.value });
+    // console.log(e.target);
+    setFriend({ ...friend, [e.target.id]: e.target.value });
   };
 
   const submitForm = e => {
     e.preventDefault();
+    console.log(friend);
     props.addNewFriend(friend);
     setFriend({ name: "", email: "", role: "" });
   };
@@ -51,7 +56,7 @@ function TeamMemberForm(props) {
         />
       </InputDiv>
       <InputDiv>
-        <label htmlFor="name">Team Member's Email: </label>
+        <label htmlFor="email">Team Member's Email: </label>
         <input
           id="email"
           type="text"
@@ -61,7 +66,7 @@ function TeamMemberForm(props) {
         />
       </InputDiv>
       <InputDiv>
-        <label htmlFor="name">Team Member's Role: </label>
+        <label htmlFor="role">Team Member's Role: </label>
         <input
           id="role"
           type="text"

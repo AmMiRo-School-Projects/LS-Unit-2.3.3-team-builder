@@ -56,7 +56,9 @@ function App() {
   const addNewFriend = friend => {
     const newFriend = {
       id: Date.now(),
-      name: friend.name
+      name: friend.name,
+      email: friend.email,
+      role: friend.role
     };
     setFreinds([...friends, newFriend]);
   };
